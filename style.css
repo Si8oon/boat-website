@@ -1,0 +1,529 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f1faee;
+  color: #0a0a0a;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #003049;
+  padding: 1.5rem 2rem;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 11;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ffd166;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffd166;
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.navbar a.active {
+  color: #ffd166;
+  font-weight: 700;
+}
+
+/* Main split for hero on home */
+.main-split {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Segoe UI", sans-serif;
+  padding-top: 80px; /* offset for fixed header */
+}
+
+/* Left image side */
+.hero-left {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+  animation: fadeIn 1.5s ease forwards;
+}
+
+/* Wave shape decoration */
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: url("https://svgshare.com/i/uFr.svg") repeat-x;
+  background-size: contain;
+  opacity: 0.5;
+  animation: waveMotion 6s linear infinite;
+}
+
+/* Right text side */
+.hero-right {
+  flex: 1;
+  background: #003049;
+  color: #f1faee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 3rem;
+  position: relative;
+  animation: slideIn 1.5s ease forwards;
+  padding-top: 80px; /* offset for fixed header */
+}
+
+.hero-right .content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.hero-right .content p {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  color: #a9c0ce;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background-color: #ffd166;
+  color: #003049;
+  font-weight: 700;
+  border-radius: 40px;
+  text-decoration: none;
+  box-shadow: 0 8px 15px rgba(255, 209, 102, 0.6);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #e6b347;
+  color: #001d29;
+  box-shadow: 0 10px 20px rgba(230, 179, 71, 0.8);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes waveMotion {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+
+/* Responsive Nav */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 1.5rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    background-color: #003049;
+    padding: 4rem 2rem;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 10;
+  }
+
+  .navbar.active {
+    transform: translateX(0);
+  }
+
+  .main-split {
+    flex-direction: column;
+  }
+
+  .hero-left,
+  .hero-right {
+    flex: unset;
+    height: 50vh;
+  }
+
+  .hero-right {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .hero-right .content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-right .content p {
+    font-size: 1rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .btn-primary {
+    padding: 0.8rem 2rem;
+  }
+
+  .wave {
+    height: 40px;
+  }
+}
+
+/* About Page Styles */
+.about-main {
+  max-width: 1000px;
+  margin: 3rem auto 5rem;
+  padding: 0 2rem;
+  text-align: center;
+  padding-top: 80px; /* offset for fixed header */
+}
+
+.intro h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.intro p {
+  font-size: 1.25rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  font-weight: 500;
+}
+
+.mission-vision {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.card {
+  background: #e0fbfc;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  flex: 1 1 320px;
+  font-weight: 600;
+  color: #0077b6;
+}
+
+.values {
+  margin-bottom: 3rem;
+}
+
+.values h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.values ul {
+  list-style: none;
+  max-width: 400px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.values ul li {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* Image Section */
+.image-section img {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+  display: block;
+}
+
+/* Footer */
+.footer {
+  background: #001219;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/*contact page styles */
+/* Contact page styles */
+/* Ship-Themed Contact Page */
+.contact-section {
+  grid-area: main;
+  padding: 6rem 2rem;
+  text-align: center;
+  background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+}
+
+.contact-section h1 {
+  font-size: 3rem;
+  color: #003049;
+  margin-bottom: 0.5rem;
+}
+
+.contact-section p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #89c2d9;
+  border-radius: 12px;
+  font-size: 1rem;
+  background-color: #fff;
+  font-family: inherit;
+  transition: border 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #0077b6;
+  outline: none;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/*icons*/
+.social-radio {
+  margin-top: 4rem;
+}
+
+.social-radio h2 {
+  font-size: 1.5rem;
+  color: #003049;
+  margin-bottom: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  background: #89c2d9;
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.icon:hover {
+  background: #0077b6;
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 15px rgba(0, 119, 182, 0.6);
+}
+
+/*fleet section */
+.fleet-hero {
+  padding: 5rem 2rem 3rem;
+  text-align: center;
+  background: url("images/ocean-bg.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  color: #eae0fe00;
+}
+
+.fleet-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #003049;
+}
+
+.fleet-hero p {
+  font-size: 1.2rem;
+  color: #003049;
+}
+
+/* ===== FLEET CARDS ===== */
+.fleet-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
+}
+
+.ship-card {
+  width: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.ship-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+
+.ship-img {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.ship1 {
+  background-image: url("pic/ship\ 1.jpg");
+}
+.ship2 {
+  background-image: url("pic/ship\ two.jpg");
+}
+.ship3 {
+  background-image: url("pic/ship\ 3.jpg");
+}
+
+.ship-info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.ship-info h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+  color: #00b4d8;
+}
+
+.ship-info p {
+  font-size: 1rem;
+  color: #003049;
+}
+@media (max-width: 768px) {
+  .fleet-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+}

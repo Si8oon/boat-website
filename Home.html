@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home — Essa & Sons</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">🚢 Essa & Sons</div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav class="navbar" id="navbar">
+        <a href="Home.html" class="active">Home</a>
+        <a href="fleet.html">Fleet</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="main-split">
+      <div class="hero-left">
+        <img src="pic/pic 1.jpg" alt="Ship sailing the ocean" />
+        <div class="wave"></div>
+      </div>
+
+      <div class="hero-right">
+        <div class="content">
+          <h1>Welcome to Essa & Sons</h1>
+          <p>
+            Your trusted shipping company navigating the world’s waters with
+            safety, speed, and care.
+          </p>
+          <a href="about.html" class="btn-primary">Learn More</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 Essa & Sons Shipping Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navbar = document.getElementById("navbar");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navbar.classList.toggle("active");
+      });
+
+      document.querySelectorAll(".navbar a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navbar.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

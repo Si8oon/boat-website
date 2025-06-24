@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Oceanic Fleet</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  </head>
+  <body>
+      <header class="header">
+      <div class="logo">🚢 Essa & Sons</div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav class="navbar" id="navbar">
+        <a href="Home.html">Home</a>
+        <a href="fleet.html">Fleet</a>
+        <a href="about.html" class="active">About</a>
+        <a href="Contact.html">Contact</a>
+      </nav>
+    </header>
+
+      <!-- Contact Section -->
+      <main class="contact-section">
+        <h1>Drop Anchor & Say Hello</h1>
+        <p>
+          Got a shipping inquiry or just wanna chat sea talk? We’re all ears!
+        </p>
+
+        <form class="contact-form">
+          <div class="form-group">
+            <input type="text" placeholder="Captain's Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Ship’s Email" required />
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Message in a bottle..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Send Message</button>
+          <div class="social-radio">
+  <h2>Find Us on the Ship's Radio</h2>
+  <div class="social-icons">
+    <a href="#" class="icon facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="icon twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" class="icon instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="icon linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</div>
+
+        </form>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        &copy; 2025 Oceanic Fleet. Navigating the world, one wave at a time.
+      </footer>
+    </div>
+
+    <!-- Navbar JS -->
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navbar = document.getElementById("navbar");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navbar.classList.toggle("active");
+      });
+
+      document.querySelectorAll(".navbar a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navbar.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

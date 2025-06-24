@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">🚢 Essa & Sons</div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav class="navbar" id="navbar">
+        <a href="Home.html">Home</a>
+        <a href="fleet.html">Fleet</a>
+        <a href="about.html" class="active">About</a>
+        <a href="Contact.html">Contact</a>
+      </nav>
+    </header>
+     <main class="fleet-main">
+    <section class="fleet-hero">
+      <h1>The Ocean Fleet</h1>
+      <p>Steel giants, wave dancers, saltborn legends.</p>
+    </section>
+
+    <section class="fleet-gallery">
+      <div class="ship-card">
+        <div class="ship-img ship1"></div>
+        <div class="ship-info">
+          <h2>SS Voyager</h2>
+          <p>300m · Cargo King · Built 2020</p>
+        </div>
+      </div>
+      <div class="ship-card">
+        <div class="ship-img ship2"></div>
+        <div class="ship-info">
+          <h2>MV Horizon</h2>
+          <p>250m · Eco Tanker · Built 2018</p>
+        </div>
+      </div>
+      <div class="ship-card">
+        <div class="ship-img ship3"></div>
+        <div class="ship-info">
+          <h2>Ocean Queen</h2>
+          <p>290m · Luxury Cruise · Built 2022</p>
+        </div>
+      </div>
+    </section>
+  </main>
+     <!-- Footer -->
+      <footer class="footer">
+        &copy; 2025 Oceanic Fleet. Navigating the world, one wave at a time.
+      </footer>
+    </div>
+
+    <!-- Navbar JS -->
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navbar = document.getElementById("navbar");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navbar.classList.toggle("active");
+      });
+
+      document.querySelectorAll(".navbar a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navbar.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>
